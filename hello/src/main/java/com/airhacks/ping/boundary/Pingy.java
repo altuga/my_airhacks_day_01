@@ -5,6 +5,7 @@
  */
 package com.airhacks.ping.boundary;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptor;
@@ -32,8 +33,17 @@ public class Pingy {
     
     
     public String pingMe() {
-        entityManager.merge(new Ping("Hello" , "I don't know"));
+        
         return "Hello from hotel" ;
+    }
+    
+    public List<Ping> pingAll() {
+        return entityManager.createNamedQuery("all", Ping.class).getResultList();
+    }
+    
+    
+    public void save(Ping ping) {
+        entityManager.merge(ping);
     }
     
     
