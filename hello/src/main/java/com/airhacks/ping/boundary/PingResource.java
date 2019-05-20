@@ -15,10 +15,10 @@ public class PingResource {
     Pingy pingy ;
 
     @GET
-    public String ping() {
+    public Ping ping() {
         //return "Enjoy Java EE 8!";
         
-        return pingy.pingMe() + " with " + pingy.getClass().getName();
+        return new Ping(pingy.pingMe() , pingy.getClass().getName() );
     }
 
 }
