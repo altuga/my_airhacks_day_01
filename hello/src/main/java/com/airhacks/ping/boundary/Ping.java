@@ -6,21 +6,34 @@
 package com.airhacks.ping.boundary;
 
 import javax.json.bind.annotation.JsonbProperty;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author altuga
  */
+@Entity
 public class Ping {
     
     @JsonbProperty("hoppa")
     public String name;
     public String proxyClass;
+    
+    @Id
+    @GeneratedValue
+    public long id; 
 
     public Ping(String name, String proxyClass) {
         this.name = name;
         this.proxyClass = proxyClass;
     }
+
+    public Ping() {
+    }
+    
+    
     
     
     
